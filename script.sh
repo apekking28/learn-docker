@@ -1,7 +1,7 @@
 # Build docker image
 docker build -t <username_dockerhub>/<nama_folder> <nama_folder>
 
-# Melihat detail dari  instruction ketika image sedang di buat
+# Melihat detail ketika image sedang di buat
 docker build -t <username_dockerhub>/<nama_folder> <nama_folder> --pogress=palin --no-cahce
 
 # FROM Instruction
@@ -14,7 +14,7 @@ docker image ls
 # RUN Instruction
 docker build -t ilhamfirmansyah28/run run
 
-# Melihat detail dari  instruction ketika image sedang di buat
+# Melihat detail dari image sedang di buat
 docker build -t ilhamfirmansyah28/run run --pogress=palin --no-cahce
 
 
@@ -56,3 +56,29 @@ docker container create --name copy ilhamfirmansyah28/copy
 docker container start copy
 
 docker container logs copy
+
+
+#  .dockerignore
+
+docker build -t ilhamfirmansyah28/ignore ignore
+
+docker container create --name ignore ilhamfirmansyah28/ignore
+
+docker container start ignore
+
+docker container logs ignore
+
+
+#  EXPOSE Instruction
+
+docker build -t ilhamfirmansyah28/expose expose
+
+docker image inspect ilhamfirmansyah28/expose
+
+docker container create --name expose -p 8080:8080 ilhamfirmansyah28/expose
+
+docker container start expose
+
+docker container logs expose
+
+curl localhost:8080
