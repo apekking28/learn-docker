@@ -83,8 +83,6 @@ docker container logs expose
 
 curl localhost:8080
 
-#  ENV Instruction
-
 # ENV Instruction
 docker build -t ilhamfirmansyah28/env env
 
@@ -101,5 +99,43 @@ docker container logs env
 docker container stop env
 
 
+# VoLUME Instruction
+docker build -t ilhamfirmansyah28/volume volume
+
+docker image inspect ilhamfirmansyah28/volume
+
+docker container create --name volume -p 8080:8080 ilhamfirmansyah28/volume
+
+docker container start volume
+
+docker container logs volume
+
+docker container inspect volume
+
+# 9c6ce9040c81b7498e9e7f8537b1cfe5abd754a64e6d83bc3f691368d85c25e0
+docker volume ls
+
+
+# WORKDIR Instrction
+
+docker build -t ilhamfirmansyah28/workdir workdir
+
+docker container create --name workdir -p 8080:8080 ilhamfirmansyah28/workdir
+
+docker container start workdir
+
+curl localhost:8080
+
+docker container exec -i -t workdir /bin/sh 
+
+
+# USER Instruction
+docker build -t ilhamfirmansyah28/user user
+
+docker container create --name user -p 8080:8080 ilhamfirmansyah28/user
+
+docker container start user
+
+docker container exec -i -t user /bin/sh
 
 
