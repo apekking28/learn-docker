@@ -82,3 +82,24 @@ docker container start expose
 docker container logs expose
 
 curl localhost:8080
+
+#  ENV Instruction
+
+# ENV Instruction
+docker build -t ilhamfirmansyah28/env env
+
+docker image inspect ilhamfirmansyah28/env
+
+docker container create --name env --env APP_PORT=9090 -p 9090:9090 ilhamfirmansyah28/env
+
+docker container start env
+
+docker container ls
+
+docker container logs env
+
+docker container stop env
+
+
+
+
